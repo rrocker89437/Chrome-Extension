@@ -1,0 +1,81 @@
+:root {
+  --green: hsl(98, 39%, 42%);
+  --white: hsl(0, 0%, 100%);
+
+  --p-10: 0.625rem;
+  --p-20: 1.25rem;
+  --b-rad: 100vh;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  font-family: "Poppins", serif;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 75em;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+#input-el {
+  width: 100%;
+  padding-inline: var(--p-10);
+  margin-bottom: 0.25rem;
+  border: 1px solid var(--green);
+  border-radius: var(--b-rad);
+}
+
+#input-btn {
+  align-self: flex-start;
+  padding: var(--p-10) var(--p-20);
+  cursor: pointer;
+  border: none;
+  border-radius: var(--b-rad);
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: var(--green);
+  color: var(--white);
+}
