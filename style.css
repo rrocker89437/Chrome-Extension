@@ -52,8 +52,8 @@ img {
 }
 
 .main {
-  min-width: 500px;
-  background-color: #919191;
+  min-width: 600px;
+  background-color: hsl(0, 0%, 39%);
 }
 
 .wrapper {
@@ -77,7 +77,8 @@ img {
   font-size: 1.3rem;
 }
 
-#input-btn {
+#input-btn,
+#delete-btn {
   width: 150px;
   height: 40px;
   padding: var(--p-10) var(--p-20);
@@ -119,21 +120,29 @@ img {
   }
 }
 
+#delete-btn {
+  margin-left: 1.2rem;
+  background-image: none;
+  background-color: hsl(0, 0%, 63%);
+}
+
 #ul-el {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr);
   max-width: fit-content;
   margin-top: 1.5rem;
-
   font-size: 0.6rem;
 
-  li:not(:first-child) {
-    margin-top: 1.5rem;
+  li {
+    margin-top: 1rem;
   }
 
   a {
     padding: 10px 20px;
     border-radius: 50px;
     background-image: linear-gradient(
-      to right bottom,
+      to right,
       #8d9bf8,
       #00c4ff,
       #00e2f2,
