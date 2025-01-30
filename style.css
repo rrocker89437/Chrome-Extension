@@ -51,6 +51,11 @@ img {
   shape-margin: 1rem;
 }
 
+.main {
+  min-width: 500px;
+  background-color: #919191;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -74,7 +79,7 @@ img {
 
 #input-btn {
   width: 150px;
-  height: 55px;
+  height: 40px;
   padding: var(--p-10) var(--p-20);
   margin-bottom: 1rem;
   cursor: pointer;
@@ -101,7 +106,7 @@ img {
   transition: all 0.4s ease-in-out;
 
   &:hover {
-    width: 250px;
+    width: 200px;
     background-position: 100% 0;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
@@ -117,23 +122,24 @@ img {
 #ul-el {
   max-width: fit-content;
   margin-top: 1.5rem;
-  padding: 20px 100px;
-  border-radius: 50px;
-  background-image: linear-gradient(
-    to right bottom,
-    #8d9bf8,
-    #00c4ff,
-    #00e2f2,
-    #65f7bc,
-    #ddff91
-  );
-  font-size: 1.2rem;
+
+  font-size: 0.6rem;
 
   li:not(:first-child) {
-    margin-top: 0.25rem;
+    margin-top: 1.5rem;
   }
 
   a {
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-image: linear-gradient(
+      to right bottom,
+      #8d9bf8,
+      #00c4ff,
+      #00e2f2,
+      #65f7bc,
+      #ddff91
+    );
     text-decoration: none;
     color: var(--black);
   }
