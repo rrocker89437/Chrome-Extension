@@ -62,15 +62,19 @@ img {
 
 #input-el {
   width: 100%;
+  height: 50px;
   padding-inline: var(--p-10);
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
   border: 1px solid var(--green);
   border-radius: var(--b-rad);
+
+  font-size: 1.3rem;
 }
 
 #input-btn {
   align-self: flex-start;
   padding: var(--p-10) var(--p-20);
+  margin-bottom: 1rem;
   cursor: pointer;
   border: none;
   border-radius: var(--b-rad);
@@ -78,4 +82,19 @@ img {
   text-transform: uppercase;
   background-color: var(--green);
   color: var(--white);
+}
+
+#ul-el {
+  max-width: fit-content;
+  padding: 20px 100px;
+  border-radius: 50px;
+  background-image: linear-gradient(
+    to right bottom,
+    #8d9bf8,
+    #00c4ff,
+    #00e2f2,
+    #65f7bc,
+    #ddff91
+  );
+  font-size: 1.2rem;
 }
