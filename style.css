@@ -52,8 +52,12 @@ img {
 }
 
 .main {
-  min-width: 600px;
-  background-color: hsl(0, 0%, 39%);
+  min-width: 800px;
+  /* background-color: hsl(0, 0%, 39%); */
+  background-image: url(./black-hexagon-honeycomb-shape.avif);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .wrapper {
@@ -72,13 +76,16 @@ img {
   height: 55px;
   padding-inline: var(--p-10);
   margin-bottom: 1rem;
-  border: 1px solid var(--green);
+  color: var(--white);
+  background-color: rgba(229, 66, 10, 0.25);
+  border: 1px solid rgba(229, 66, 10, 0.75);
   border-radius: var(--b-rad);
   font-size: 1.3rem;
 }
 
 #input-btn,
-#delete-btn {
+#delete-btn,
+#tab-btn {
   width: 150px;
   height: 40px;
   padding: var(--p-10) var(--p-20);
@@ -120,10 +127,15 @@ img {
   }
 }
 
+#tab-btn {
+  margin-left: 1.2rem;
+}
+
 #delete-btn {
   margin-left: 1.2rem;
   background-image: none;
-  background-color: hsl(0, 0%, 63%);
+  color: var(--white);
+  background-color: var(--black);
 }
 
 #ul-el {
@@ -141,15 +153,15 @@ img {
   a {
     padding: 10px 20px;
     border-radius: 50px;
-    background-image: linear-gradient(
-      to right,
-      #8d9bf8,
-      #00c4ff,
-      #00e2f2,
-      #65f7bc,
-      #ddff91
+    background: linear-gradient(
+      90deg,
+      rgba(141, 155, 248, 0.35) 0%,
+      rgba(0, 196, 255, 0.35) 35%,
+      rgba(0, 226, 242, 0.35) 61%,
+      rgba(101, 247, 188, 0.35) 75%,
+      rgba(221, 255, 145, 0.35) 100%
     );
     text-decoration: none;
-    color: var(--black);
+    color: var(--white);
   }
 }
