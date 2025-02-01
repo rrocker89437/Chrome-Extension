@@ -54,10 +54,18 @@ img {
 }
 /* ------------------------------------------------- */
 
-/* SETUP */
-/* body {
-  overflow-y: hidden;
-} */
+/* SETUP  */
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+/* body { */
+/* -ms-overflow-style: none; IE and Edge */
+/* scrollbar-width: none; Firefox */
+/* } */
 
 .main {
   min-width: 800px;
@@ -73,9 +81,9 @@ img {
   justify-content: center;
   /* align-items: start; */
 
-  max-width: 75em;
+  max-width: 65em;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 /* ------------------------------------------------- */
 
@@ -134,10 +142,11 @@ img {
     );
     text-decoration: none;
     color: var(--white);
-    /* transition: all 0.4s ease-in-out; */
+    overflow: hidden;
+    transition: background-image 0.4s ease-in-out;
 
     &:hover {
-      background: linear-gradient(
+      background-image: linear-gradient(
         90deg,
         rgb(141, 155, 248) 0%,
         rgb(0, 195, 255) 35%,
@@ -230,11 +239,13 @@ p {
 /* REMOVE Button */
 p {
   /* margin-left: 20px; */
-  padding: var(--p-10) var(--p-20);
+  align-self: center;
+  justify-self: center;
+  padding: 10px 18px;
   border-radius: var(--b-rad);
   box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
 
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--white);
   cursor: pointer;
   transition: all 0.4s ease-in-out;

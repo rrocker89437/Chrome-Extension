@@ -23,7 +23,7 @@ function render(leads) {
                 <a target='_blank' href='${leads[i]}'>
                     ${leads[i]}
                 </a>
-                <p data-counter="${counter}" class="remove-link">Remove</p>
+                <p data-counter="${counter}" class="remove-link">-</p>
             </li>
         `;
   }
