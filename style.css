@@ -67,12 +67,22 @@ body::-webkit-scrollbar {
 /* scrollbar-width: none; Firefox */
 /* } */
 
+body {
+  background-color: var(--black);
+}
+
 .main {
   min-width: 800px;
   background-image: url(./black-hexagon-honeycomb-shape.avif);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 1000px;
+
+  @media (max-width: 500px) {
+    min-width: 412px;
+    max-height: 100vh;
+  }
 }
 
 .wrapper {
@@ -216,6 +226,24 @@ body::-webkit-scrollbar {
 /*SAVE TAB */
 #tab-btn {
   margin-right: 1.2rem;
+
+  @media (max-width: 500px) {
+    max-width: 150px;
+  }
+}
+
+#input-btn {
+  @media (max-width: 500px) {
+    max-width: 150px;
+  }
+}
+
+#delete-btn {
+  @media (max-width: 500px) {
+    position: absolute;
+    margin-top: 130px;
+    margin-bottom: 50px;
+  }
 }
 /* ------------------------------------------------- */
 
@@ -226,6 +254,10 @@ p {
   background-image: none;
   color: var(--white);
   background-color: var(--black);
+
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+  }
 
   &:hover {
     color: var(--black);
