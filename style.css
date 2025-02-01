@@ -3,6 +3,7 @@
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
   --red: hsl(0, 100%, 50%);
+  --bg-btn: hsl(355, 80%, 45%);
 
   --p-10: 0.625rem;
   --p-20: 1.25rem;
@@ -53,7 +54,6 @@ img {
 
 .main {
   min-width: 800px;
-  /* background-color: hsl(0, 0%, 39%); */
   background-image: url(./black-hexagon-honeycomb-shape.avif);
   background-position: center center;
   background-repeat: no-repeat;
@@ -64,7 +64,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  /* align-items: start; */
 
   max-width: 75em;
   margin: 0 auto;
@@ -90,6 +90,12 @@ img {
   );
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #input-btn,
@@ -123,7 +129,7 @@ img {
   transition: all 0.4s ease-in-out;
 
   &:hover {
-    width: 200px;
+    width: 250px;
     background-position: 100% 0;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
@@ -137,7 +143,7 @@ img {
 }
 
 #tab-btn {
-  margin-left: 1.2rem;
+  margin-right: 1.2rem;
 }
 
 #delete-btn {
@@ -145,6 +151,13 @@ img {
   background-image: none;
   color: var(--white);
   background-color: var(--black);
+
+  &:hover {
+    color: var(--black);
+    background-color: var(--bg-btn);
+    box-shadow: 0 0 10px var(--bg-btn), 0 0 30px var(--bg-btn),
+      0 0 60px var(--bg-btn), 0 0 100px var(--bg-btn);
+  }
 }
 
 #ul-el {
