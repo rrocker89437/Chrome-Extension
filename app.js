@@ -1,9 +1,9 @@
 let myLeads = [];
 const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
-const tabBtn = document.getElementById("tab-btn");
-const deleteBtn = document.getElementById("delete-btn");
 const ulEl = document.getElementById("ul-el");
+const deleteBtn = document.getElementById("delete-btn");
+const tabBtn = document.getElementById("tab-btn");
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 
 // Save Leads in local Storage
@@ -15,16 +15,55 @@ if (leadsFromLocalStorage) {
 // Render Leads in Extension
 function render(leads) {
   let listItems = "";
+  let counter = 0;
   for (let i = 0; i < leads.length; i++) {
+    counter++;
     listItems += `
             <li>
                 <a target='_blank' href='${leads[i]}'>
                     ${leads[i]}
                 </a>
+                <p data-counter="${counter}" class="remove-link">Remove</p>
             </li>
         `;
   }
   ulEl.innerHTML = listItems;
+}
+
+// Add a click event listener to the ulEl unordered list element.
+ulEl.addEventListener("click", function (event) {
+  // Check if the clicked element has the "remove-link" class.
+  if (event.target.classList.contains("remove-link")) {
+    // Find the closest parent <li> element.
+    const listItem = event.target.closest("li");
+    // Retrieve the URL from the <a> element within the <li>.
+    const url = listItem.querySelector("a").getAttribute("href");
+    // Find the index of the URL within the myLeads array.
+    const index = myLeads.indexOf(url);
+    // If the URL is found, remove it from the array, update local storage, and remove the list item from the DOM.
+    if (index !== -1) {
+      myLeads.splice(index, 1);
+      localStorage.setItem("myLeads", JSON.stringify(myLeads));
+      listItem.remove();
+    }
+  }
+});
+
+// Remove link
+function removeLink(counter) {
+  const listItem = document.getElementsByClassName(`remove-link-${counter}`);
+  if (listItem) {
+    const parent = listItem.parentNode;
+    if (parent) {
+      const url = parent.querySelector("a")?.getAttribute("href");
+      const index = myLeads.indexOf(url);
+      if (index !== -1) {
+        myLeads.splice(index, 1);
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
+      }
+      parent.remove();
+    }
+  }
 }
 
 // Delete All

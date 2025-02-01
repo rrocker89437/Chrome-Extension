@@ -10,6 +10,7 @@
   --b-rad: 100vh;
 }
 
+/* RESETS */
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -51,6 +52,12 @@ img {
   background-size: cover;
   shape-margin: 1rem;
 }
+/* ------------------------------------------------- */
+
+/* SETUP */
+/* body {
+  overflow-y: hidden;
+} */
 
 .main {
   min-width: 800px;
@@ -70,7 +77,9 @@ img {
   margin: 0 auto;
   padding: 1.5rem;
 }
+/* ------------------------------------------------- */
 
+/* INPUT BAR */
 #input-el {
   width: 100%;
   height: 55px;
@@ -91,13 +100,65 @@ img {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* ------------------------------------------------- */
 
+/* Ul, Li, & Link Styles */
+#ul-el {
+  /* display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(2, 1fr); */
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  width: 100%;
+
+  li {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+
+  a {
+    align-self: center;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: linear-gradient(
+      90deg,
+      rgba(141, 155, 248, 0.35) 0%,
+      rgba(0, 196, 255, 0.35) 35%,
+      rgba(0, 226, 242, 0.35) 61%,
+      rgba(101, 247, 188, 0.35) 75%,
+      rgba(221, 255, 145, 0.35) 100%
+    );
+    text-decoration: none;
+    color: var(--white);
+    /* transition: all 0.4s ease-in-out; */
+
+    &:hover {
+      background: linear-gradient(
+        90deg,
+        rgb(141, 155, 248) 0%,
+        rgb(0, 195, 255) 35%,
+        rgb(0, 226, 242) 61%,
+        rgb(101, 247, 189) 75%,
+        rgb(220, 255, 145) 100%
+      );
+      color: var(--black);
+    }
+  }
+}
+/* ------------------------------------------------- */
+
+/* Buttons Container */
 .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Main Button Styles */
 #input-btn,
 #delete-btn,
 #tab-btn {
@@ -141,12 +202,17 @@ img {
     outline: none;
   }
 }
+/* ------------------------------------------------- */
 
+/*SAVE TAB */
 #tab-btn {
   margin-right: 1.2rem;
 }
+/* ------------------------------------------------- */
 
-#delete-btn {
+/* DELETE ALL & REMOVE Button */
+#delete-btn,
+p {
   margin-left: 1.2rem;
   background-image: none;
   color: var(--white);
@@ -159,31 +225,17 @@ img {
       0 0 60px var(--bg-btn), 0 0 100px var(--bg-btn);
   }
 }
+/* ------------------------------------------------- */
 
-#ul-el {
-  /* display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(2, 1fr); */
-  max-width: fit-content;
-  margin-top: 1.5rem;
-  font-size: 0.6rem;
+/* REMOVE Button */
+p {
+  /* margin-left: 20px; */
+  padding: var(--p-10) var(--p-20);
+  border-radius: var(--b-rad);
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
 
-  li {
-    margin-top: 1.5rem;
-  }
-
-  a {
-    padding: 10px 20px;
-    border-radius: 50px;
-    background: linear-gradient(
-      90deg,
-      rgba(141, 155, 248, 0.35) 0%,
-      rgba(0, 196, 255, 0.35) 35%,
-      rgba(0, 226, 242, 0.35) 61%,
-      rgba(101, 247, 188, 0.35) 75%,
-      rgba(221, 255, 145, 0.35) 100%
-    );
-    text-decoration: none;
-    color: var(--white);
-  }
+  font-size: 0.75rem;
+  color: var(--white);
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
 }
