@@ -107,6 +107,7 @@ inputBtn.addEventListener("click", function () {
 // }
 
 //-----------------------------------------------
+
 // store leads in local storage
 // let myLeads = `["www.awesomelead.com"]`;
 
@@ -123,6 +124,7 @@ inputBtn.addEventListener("click", function () {
 // let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 // localStorage.setItem("myLeads", JSON.stringify(myLeads));
 //-----------------------------------------------
+
 //Parameters
 // function greetUser(greeting, name) {
 //   welcomeEl.textContent = `${greeting}, ${name} 👋`;
@@ -135,9 +137,29 @@ inputBtn.addEventListener("click", function () {
 // }
 // add(3, 4);
 //-----------------------------------------------
+
 // Create a function, getFirst(arr), that returns the first item in the array
 // function getFirst(arr) {
 //   return arr[0];
 // }
 // let f
 // console.log(firstCard);
+//-----------------------------------------------
+
+// let myCourses = [
+//   "Learn CSS Animations",
+//   "UI Design Fundamentals",
+//   "Intro to Clean Code",
+// ];
+
+// Create a function that takes a single parameter, an array,
+// and logs all the items of the array to the console.
+// Call the function while passing in myCourses as an argument
+
+// function logItems(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     console.log(arr[i]);
+//   }
+// }
+
+// logItems(myCourses);
