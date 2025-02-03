@@ -61,18 +61,12 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-/* body { */
-/* -ms-overflow-style: none; IE and Edge */
-/* scrollbar-width: none; Firefox */
-/* } */
-
 body {
   background-color: #141517;
 }
 
 .main {
-  min-width: 800px;
+  min-width: 350px;
   background-image: url(./black-hexagon-honeycomb-shape.avif);
   background-position: center center;
   background-repeat: no-repeat;
@@ -182,6 +176,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
 
 /* Main Button Styles */
