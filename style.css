@@ -194,7 +194,7 @@ label {
   text-align: center;
   font-weight: 700;
   text-transform: uppercase;
-  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  box-shadow: 0 4px 15px 0 hsla(15, 92%, 47%, 0.749);
   background-image: linear-gradient(
     to right,
     #f5ce62,
