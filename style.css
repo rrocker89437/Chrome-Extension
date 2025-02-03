@@ -183,7 +183,7 @@ label {
 #input-btn,
 #delete-btn,
 #tab-btn {
-  width: 150px;
+  width: 125px;
   height: 40px;
   padding: var(--p-10) var(--p-20);
   margin-bottom: 1rem;
@@ -211,7 +211,7 @@ label {
   transition: all 0.4s ease-in-out;
 
   &:hover {
-    width: 250px;
+    width: 175px;
     background-position: 100% 0;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
