@@ -55,6 +55,7 @@ ulEl.addEventListener("click", function (event) {
       })
       .catch((error) => {
         console.error("Error removing link: ", error);
+        alert("Error");
       });
   }
 });
