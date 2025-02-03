@@ -68,7 +68,7 @@ body::-webkit-scrollbar {
 /* } */
 
 body {
-  background-color: var(--black);
+  background-color: #141517;
 }
 
 .main {
@@ -79,10 +79,10 @@ body {
   background-size: cover;
   min-height: 1000px;
 
-  @media (max-width: 500px) {
+  /* @media (max-width: 500px) {
     min-width: 412px;
     max-height: 100vh;
-  }
+  } */
 }
 
 .wrapper {
@@ -96,6 +96,13 @@ body {
   padding: 1rem;
 }
 /* ------------------------------------------------- */
+
+/* Label */
+label {
+  margin-left: 1.5rem;
+  font-size: 1rem;
+  color: var(--white);
+}
 
 /* INPUT BAR */
 #input-el {
@@ -227,24 +234,24 @@ body {
 #tab-btn {
   margin-right: 1.2rem;
 
+  /* @media (max-width: 500px) {
+    max-width: 150px;
+  } */
+}
+
+/* #input-btn {
   @media (max-width: 500px) {
     max-width: 150px;
   }
-}
+} */
 
-#input-btn {
-  @media (max-width: 500px) {
-    max-width: 150px;
-  }
-}
-
-#delete-btn {
+/* #delete-btn {
   @media (max-width: 500px) {
     position: absolute;
     margin-top: 130px;
     margin-bottom: 50px;
   }
-}
+} */
 /* ------------------------------------------------- */
 
 /* DELETE ALL & REMOVE Button */
@@ -255,9 +262,9 @@ p {
   color: var(--white);
   background-color: var(--black);
 
-  @media (max-width: 500px) {
+  /* @media (max-width: 500px) {
     flex-wrap: wrap;
-  }
+  } */
 
   &:hover {
     color: var(--black);

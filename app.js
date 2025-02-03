@@ -1,18 +1,38 @@
-let myLeads = [];
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+import {
+  getDatabase,
+  ref,
+  push,
+  onValue,
+  remove,
+} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+
+const firebaseConfig = {
+  databaseURL: "https://link-saver-app-4736c-default-rtdb.firebaseio.com/",
+  // databaseURL: process.env.DATABASE_URL,
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+const referenceInDB = ref(database, "leads");
+
+// console.log(firebaseConfig.databaseURL);
+
+// let myLeads = [];
 const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEl = document.getElementById("ul-el");
 const deleteBtn = document.getElementById("delete-btn");
-const tabBtn = document.getElementById("tab-btn");
-const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+// const tabBtn = document.getElementById("tab-btn");
+// const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 
 // Save Leads in local Storage
-if (leadsFromLocalStorage) {
-  myLeads = leadsFromLocalStorage;
-  render(myLeads);
-}
+// if (leadsFromLocalStorage) {
+//   myLeads = leadsFromLocalStorage;
+//   render(myLeads);
+// }
 
-// Render Leads in Extension
+//* Render Leads in Extension
 function render(leads) {
   let listItems = "";
   let counter = 0;
@@ -39,56 +59,83 @@ ulEl.addEventListener("click", function (event) {
     // Retrieve the URL from the <a> element within the <li>.
     const url = listItem.querySelector("a").getAttribute("href");
     // Find the index of the URL within the myLeads array.
-    const index = myLeads.indexOf(url);
-    // If the URL is found, remove it from the array, update local storage, and remove the list item from the DOM.
-    if (index !== -1) {
-      myLeads.splice(index, 1);
-      localStorage.setItem("myLeads", JSON.stringify(myLeads));
-      listItem.remove();
-    }
+    // const index = myLeads.indexOf(url);
+    const linkRef = ref(database, `leads/${url}`); // Assuming the link is stored with its URL as key
+    remove(linkRef)
+      .then(() => {
+        console.log("Link successfully deleted!");
+        listItem.remove(); // Remove the list item from the DOM
+      })
+      .catch((error) => {
+        console.error("Error removing link: ", error);
+      });
+  }
+  // If the URL is found, remove it from the array, update local storage, and remove the list item from the DOM.
+  // if (index !== -1) {
+  // referenceInDB.splice(index, 1);
+  // localStorage.setItem("myLeads", JSON.stringify(myLeads));
+  // listItem.remove();
+  // remove(referenceInDB);
+  // }
+});
+
+// *Remove link
+// function removeLink(counter) {
+//   const listItem = document.getElementsByClassName(`remove-link-${counter}`);
+//   if (listItem) {
+//     const parent = listItem.parentNode;
+//     if (parent) {
+//       const url = parent.querySelector("a")?.getAttribute("href");
+//       // const index = myLeads.indexOf(url);
+//       const index = referenceInDB.indexOf(url);
+//       if (index !== -1) {
+//         // myLeads.splice(index, 1);
+//         inputEl.value.splice(index, 1);
+//         // localStorage.setItem("myLeads", JSON.stringify(myLeads));
+//       }
+//       parent.remove(referenceInDB);
+//     }
+//   }
+// }
+
+onValue(referenceInDB, function (snapshot) {
+  const snapshotDoesExist = snapshot.exists();
+  if (snapshotDoesExist) {
+    const snapshotValues = snapshot.val();
+    const leads = Object.values(snapshotValues);
+    render(leads);
   }
 });
 
-// Remove link
-function removeLink(counter) {
-  const listItem = document.getElementsByClassName(`remove-link-${counter}`);
-  if (listItem) {
-    const parent = listItem.parentNode;
-    if (parent) {
-      const url = parent.querySelector("a")?.getAttribute("href");
-      const index = myLeads.indexOf(url);
-      if (index !== -1) {
-        myLeads.splice(index, 1);
-        localStorage.setItem("myLeads", JSON.stringify(myLeads));
-      }
-      parent.remove();
-    }
-  }
-}
-
-// Delete All
+//* Delete All
 deleteBtn.addEventListener("dblclick", function () {
-  localStorage.clear();
-  myLeads = [];
-  render(myLeads);
+  // localStorage.clear();
+  // myLeads = [];
+  // render(myLeads);
+  remove(referenceInDB);
+  ulEl.innerHTML = "";
 });
 
-// Save Tab
-tabBtn.addEventListener("click", function () {
-  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-    myLeads.push(tabs[0].url);
-    localStorage.setItem("myLeads", JSON.stringify(myLeads));
-    render(myLeads);
-  });
-});
-
-// Save Input
+//* Save Input
 inputBtn.addEventListener("click", function () {
-  myLeads.push(inputEl.value);
+  // myLeads.push(inputEl.value);
+  push(referenceInDB, inputEl.value);
   inputEl.value = "";
-  localStorage.setItem("myLeads", JSON.stringify(myLeads));
-  render(myLeads);
+  console.log("Clicked");
+  // localStorage.setItem("myLeads", JSON.stringify(myLeads));
+  // render(myLeads);
 });
+
+//* Save Tab
+// tabBtn.addEventListener("click", function () {
+//   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+//     myLeads.push(tabs[0].url);
+//     localStorage.setItem("myLeads", JSON.stringify(myLeads));
+//     render(myLeads);
+//   });
+// });
+
+// -----------------------------------------------------------
 
 // function renderLeads() {
 // Create a variable, listItems

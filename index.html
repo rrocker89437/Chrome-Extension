@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'wasm-unsafe-eval' 'inline-speculation-rules' http://localhost:* http://127.0.0.1:* https://www.gstatic.com;"
+    />
 
     <!-- Favicon -->
     <link rel="icon" href="./icon.png" type="image/icon type" />
@@ -23,9 +27,14 @@
   <body>
     <main class="main">
       <section class="wrapper">
-        <input type="text" id="input-el" />
+        <label>Enter URL</label>
+        <input
+          placeholder="https://www.google.com/"
+          type="text"
+          id="input-el"
+        />
         <div class="buttons">
-          <button id="tab-btn">Save Tab</button>
+          <!-- <button id="tab-btn">Save Tab</button> -->
           <button id="input-btn">Save Link</button>
           <button id="delete-btn">Delete All</button>
         </div>
@@ -33,6 +42,6 @@
       </section>
     </main>
     <!-- Javascript -->
-    <script src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>
