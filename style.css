@@ -2,6 +2,7 @@
   --green: hsl(98, 39%, 42%);
   --white: hsl(0, 0%, 100%);
   --black: hsl(0, 0%, 0%);
+  --black-opacity: hsla(0, 0%, 100%, 0.068);
   --red: hsl(0, 100%, 50%);
   --bg-btn: hsl(355, 80%, 45%);
 
@@ -89,6 +90,23 @@ body {
   margin: 0 auto;
   padding: 1rem;
 }
+
+.draggable {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--black-opacity);
+  padding: 10px;
+  border-radius: 100vh;
+  margin-bottom: 5px;
+  cursor: grab;
+  position: relative;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
+  transform: scale(1.05);
+}
 /* ------------------------------------------------- */
 
 /* Label */
@@ -123,24 +141,30 @@ label {
 
 /* Ul, Li, & Link Styles */
 #ul-el {
-  /* display: grid;
-  gap: 0.5rem;
-  grid-template-columns: repeat(2, 1fr); */
+  display: flex;
+  flex-direction: column;
   margin-top: 1.5rem;
   font-size: 0.75rem;
   width: 100%;
 
   li {
     display: flex;
+    width: 100%;
     flex-direction: row;
     align-content: center;
     justify-content: space-between;
     margin-top: 1.5rem;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 
   a {
+    margin-right: 40px;
     align-self: center;
-    width: 100%;
+    width: 95%;
     padding: 10px 20px;
     border-radius: 50px;
     background: linear-gradient(
@@ -271,16 +295,34 @@ p {
 /* ------------------------------------------------- */
 
 /* REMOVE Button */
-p {
+.remove-link {
   /* margin-left: 20px; */
-  align-self: center;
+  /* position: fixed;
+  right: 28px; */
+  /* align-self: center;
   justify-self: center;
-  padding: 10px 18px;
+ 
   border-radius: var(--b-rad);
-  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  
 
   font-size: 1rem;
   color: var(--white);
   cursor: pointer;
+   */
+  position: absolute;
+  right: 10px; /* Keeps it aligned to the right */
+  top: 50%;
+  transform: translateY(-50%); /* Centers vertically */
+  flex-shrink: 0; /* Prevents resizing */
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-btn);
+  box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
   transition: all 0.4s ease-in-out;
 }
